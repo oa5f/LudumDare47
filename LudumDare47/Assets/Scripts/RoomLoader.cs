@@ -12,7 +12,8 @@ public class RoomLoader : MonoBehaviour
 
     [SerializeField] private int loadDistance = 2;
 
-    [SerializeField] TextMeshProUGUI timer;
+    [SerializeField] private TextMeshProUGUI timer;
+    [SerializeField] private RoomFailedManager roomFailed;
 
     private readonly Queue<Room> loadedRooms = new Queue<Room>();
     private int currentRoom = 0;
@@ -86,6 +87,7 @@ public class RoomLoader : MonoBehaviour
     public void OnRoomFailed()
     {
         Debug.Log("Room Failed!");
+        roomFailed.Show();
         foreach(Room room in loadedRooms)
         {
             if (room.roomIndex == currentRoom)

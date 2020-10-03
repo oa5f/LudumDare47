@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (RoomFailedManager.Showing)
+            return;
+
         Move();
 
         if(!pauseMenu.IsPaused)
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Move()
     {
+
         Vector2 currentInput = Vector2.right * Input.GetAxisRaw("Horizontal") + Vector2.up * Input.GetAxisRaw("Vertical");
         input = Vector2.Lerp(input, currentInput, moveLerpValue * Time.deltaTime);
 

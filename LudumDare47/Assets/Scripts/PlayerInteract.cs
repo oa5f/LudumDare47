@@ -11,10 +11,12 @@ public class PlayerInteract : MonoBehaviour
     private IInteractable selected;
     private void Update()
     {
-        if (Input.GetButtonDown("Interact"))
+        if (Input.GetButtonDown("Interact") && !PauseMenu.Instance.IsPaused)
         {
             if (selected != null)
                 selected.Interact();
+            else
+                GetComponent<AudioPlayer>().SpawnSource2D("SelectError");
         }
     }
     private void FixedUpdate()

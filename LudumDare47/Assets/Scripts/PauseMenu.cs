@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu Instance { get; private set; }
+
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject crosshair;
 
     public bool IsPaused { get; private set; } = false;
     private void Start()
     {
+        Instance = this;
         Time.timeScale = 1f;
     }
     private void Update()
