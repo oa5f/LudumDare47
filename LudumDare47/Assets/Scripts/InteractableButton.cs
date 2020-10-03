@@ -11,6 +11,7 @@ public class InteractableButton : MonoBehaviour, IInteractable
     private Color defaultColor;
     private Material mat;
 
+
     private void Start()
     {
         mat = GetComponent<Renderer>().material;
@@ -24,12 +25,14 @@ public class InteractableButton : MonoBehaviour, IInteractable
 
     public void OnDeselected()
     {
-        mat.color = defaultColor;
+        if(mat != null)
+            mat.color = defaultColor;
     }
 
     public void OnSelected()
     {
-        mat.color = selectedColor;
+        if(mat != null)
+            mat.color = selectedColor;
     }
 
     private void OnDestroy()

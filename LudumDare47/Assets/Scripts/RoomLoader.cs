@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class RoomLoader : MonoBehaviour
@@ -10,6 +11,8 @@ public class RoomLoader : MonoBehaviour
     [SerializeField] private PlayerMovement player;
 
     [SerializeField] private int loadDistance = 2;
+
+    [SerializeField] TextMeshProUGUI timer;
 
     private readonly Queue<Room> loadedRooms = new Queue<Room>();
     private int currentRoom = 0;
@@ -23,6 +26,9 @@ public class RoomLoader : MonoBehaviour
         {
             Room room = SpawnRoom(currentRoomPos, i);
 
+            if (room.roomIndex == 0)
+                room.OnRoomLoaded(OnRoomCompleted, OnRoomFailed);
+
             currentRoomPos = room.endPoint.position;
 
         }
@@ -31,6 +37,12 @@ public class RoomLoader : MonoBehaviour
     private void Update()
     {
         CheckIfNewRoomShouldLoad();
+
+        foreach (Room room in loadedRooms)
+        {
+            if (room.roomIndex == currentRoom)
+                timer.text = Mathf.CeilToInt(room.TimeLeft).ToString();
+        }
     }
     private void CheckIfNewRoomShouldLoad()
     {
@@ -60,5 +72,24 @@ public class RoomLoader : MonoBehaviour
 
         currentRoom++;
         SpawnRoom(loadedRooms.Last().endPoint.position, currentRoom + loadDistance);
+
+        foreach(Room room in loadedRooms)
+        {
+            if (room.roomIndex == currentRoom)
+                room.OnRoomLoaded(OnRoomCompleted, OnRoomFailed);
+        }
+    }
+    public void OnRoomCompleted()
+    {
+        Debug.Log("Room Completed!");
+    }
+    public void OnRoomFailed()
+    {
+        Debug.Log("Room Failed!");
+        foreach(Room room in loadedRooms)
+        {
+            if (room.roomIndex == currentRoom)
+                room.OpenExit();
+        }
     }
 }

@@ -19,16 +19,30 @@ public class PlayerInteract : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        RaycastHit[] hit = Physics.RaycastAll(center.position, center.forward, maxDistance, mask);
-        if(hit.Length == 0 || hit[0].collider.GetComponent<IInteractable>() == null)
+
+        RaycastHit[] hits = Physics.RaycastAll(center.position, center.forward, maxDistance, mask);
+
+        bool hasHit = false;
+
+        RaycastHit hit = new RaycastHit();
+        foreach (RaycastHit i in hits)
+        {
+            if (i.collider.GetComponent<IInteractable>() != null)
+            {
+                hit = i;
+                hasHit = true;
+            }
+        }
+
+        if(!hasHit || hit.collider.GetComponent<IInteractable>() == null)
         {
             if (selected != null)
                 selected.OnDeselected();
             selected = null;
             return;
         }
-        var interactable = hit[0].collider.GetComponent<IInteractable>();
-        if (selected != null && !interactable.Equals(selected))
+        var interactable = hit.collider.GetComponent<IInteractable>();
+        if (selected != null && !(interactable == selected))
         {
             selected.OnDeselected();
             selected = null;
