@@ -10,13 +10,21 @@ public class CursorManager : MonoBehaviour
     {
         Instance = this;
 
+        Lock();
+    }
+    public void Lock()
+    {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+    public void Unlock()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void OnDestroy()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Unlock();
     }
 }

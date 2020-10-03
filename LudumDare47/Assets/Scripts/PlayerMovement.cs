@@ -12,9 +12,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveLerpValue;
 
     [SerializeField] private Transform cam;
-    [SerializeField] private float mouseSensitivity = 10f;
+
+    [SerializeField] private PauseMenu pauseMenu;
+
+    public float MouseSensitivity { get; set; } = 1f;
+    private const float sensitivityMultiplier = 0.35f;
 
     private Vector2 input = Vector2.zero;
+    private float cameraXRotation = 0f;
 
     private void Start()
     {
@@ -23,7 +28,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        Move();
 
+        if(!pauseMenu.IsPaused)
+            Rotate();
+
+    }
+    private void Move()
+    {
         Vector2 currentInput = Vector2.right * Input.GetAxisRaw("Horizontal") + Vector2.up * Input.GetAxisRaw("Vertical");
         input = Vector2.Lerp(input, currentInput, moveLerpValue * Time.deltaTime);
 
@@ -34,10 +46,15 @@ public class PlayerMovement : MonoBehaviour
         localInput *= localInputMagnitude;
 
         characterController.Move(localInput * speed * Time.deltaTime);
-
-        Vector2 mouseMovement = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * mouseSensitivity;
+    }
+    private void Rotate()
+    {
+        // Rotate
+        Vector2 mouseMovement = new Vector2(Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y")) * MouseSensitivity * sensitivityMultiplier;
         transform.Rotate(new Vector3(0f, mouseMovement.x, 0f));
-        cam.Rotate(new Vector3(mouseMovement.y, 0f, 0f));
+        
+        cameraXRotation = Mathf.Clamp(cameraXRotation + mouseMovement.y, -90f, 90f);
+        cam.localRotation = Quaternion.Euler(cameraXRotation, 0f, 0f);
 
     }
 }

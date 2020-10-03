@@ -8,4 +8,8 @@ public class Room : MonoBehaviour
     public Transform endPoint;
 
     public int roomIndex = 0;
+
+    [SerializeField] private Door exit;
+
+
 }
