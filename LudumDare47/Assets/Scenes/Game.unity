@@ -766,8 +766,7 @@ MonoBehaviour:
   m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 614a92a660dacd84d86c38e91208c367, type: 2}
-  m_sharedMaterial: {fileID: 6801598133113862175, guid: 614a92a660dacd84d86c38e91208c367,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e11043bcc03f3840b816d06217e2e43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1877,8 +1876,7 @@ MonoBehaviour:
   m_text: WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 614a92a660dacd84d86c38e91208c367, type: 2}
-  m_sharedMaterial: {fileID: 6801598133113862175, guid: 614a92a660dacd84d86c38e91208c367,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 7e11043bcc03f3840b816d06217e2e43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

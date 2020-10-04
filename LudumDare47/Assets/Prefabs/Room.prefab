@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd952afc20383fb4681ef579c385246d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: '[E] or [Mouse 0] - Interact'
+  message: '[E] or [Left Mouse Button] - Interact'
 --- !u!54 &2349918376682105408
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -281,7 +281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6108304789694787004}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: 3.86, z: -20.02}
+  m_LocalPosition: {x: 5, y: 3.86, z: -20.15}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8016345433184236418}
@@ -391,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7429255483703750422}
   m_LocalRotation: {x: 0.0000016391275, y: 0.7071068, z: -0.7071068, w: 0.0000016391275}
-  m_LocalPosition: {x: 5, y: 0.899, z: 0.025}
+  m_LocalPosition: {x: 5, y: 0.899, z: 0.15}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8016345433184236418}
@@ -1353,8 +1353,11 @@ MonoBehaviour:
   puzzlePrefabs:
   - {fileID: 2657591387663179523, guid: 91bc1cb910613e54eacedda4666c3852, type: 3}
   - {fileID: 8693313630153490554, guid: 65cd25f5b32b69c4fadacafa44d1b694, type: 3}
+  - {fileID: 4119440432626112867, guid: 3fe141fbf090116468baa8302cd2b192, type: 3}
   - {fileID: 1060418859304456308, guid: 83f2e38d5e0fd764881012c0f1aa8c8e, type: 3}
-  - {fileID: 1636005972037447825, guid: 35a8640cf274c5c4d8ceeb5ba449f087, type: 3}
+  - {fileID: 2657591387663179523, guid: 91bc1cb910613e54eacedda4666c3852, type: 3}
+  - {fileID: 8693313630153490554, guid: 65cd25f5b32b69c4fadacafa44d1b694, type: 3}
+  - {fileID: 1060418859304456308, guid: 83f2e38d5e0fd764881012c0f1aa8c8e, type: 3}
   - {fileID: 2657591387663179523, guid: 91bc1cb910613e54eacedda4666c3852, type: 3}
   puzzleParent: {fileID: 4899046525557725526}
   puzzleTweenDuration: 0.75
