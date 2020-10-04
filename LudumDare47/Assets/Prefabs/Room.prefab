@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6149748472552130268}
   endPoint: {fileID: 1740179878216848659}
-  TimeLeft: 35
+  TimeLeft: 42.5
   roomIndex: 0
   exit: {fileID: 7026766984731598776}
   puzzlePrefabs:
@@ -1356,6 +1356,7 @@ MonoBehaviour:
   - {fileID: 4119440432626112867, guid: 3fe141fbf090116468baa8302cd2b192, type: 3}
   - {fileID: 1060418859304456308, guid: 83f2e38d5e0fd764881012c0f1aa8c8e, type: 3}
   - {fileID: 2657591387663179523, guid: 91bc1cb910613e54eacedda4666c3852, type: 3}
+  - {fileID: 1636005972037447825, guid: 35a8640cf274c5c4d8ceeb5ba449f087, type: 3}
   - {fileID: 8693313630153490554, guid: 65cd25f5b32b69c4fadacafa44d1b694, type: 3}
   - {fileID: 1060418859304456308, guid: 83f2e38d5e0fd764881012c0f1aa8c8e, type: 3}
   - {fileID: 2657591387663179523, guid: 91bc1cb910613e54eacedda4666c3852, type: 3}

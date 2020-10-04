@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coolect all items to continue
+  m_text: Collect all items to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 614a92a660dacd84d86c38e91208c367, type: 2}
   m_sharedMaterial: {fileID: 6801598133113862175, guid: 614a92a660dacd84d86c38e91208c367,
