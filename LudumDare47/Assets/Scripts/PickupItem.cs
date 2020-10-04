@@ -15,7 +15,7 @@ public class PickupItem : MonoBehaviour, IInteractable
     {
         material = GetComponent<Renderer>().material;
         color = gradient.Evaluate(Random.value);
-        material.color = color;
+        SetColor(color);
         GetComponent<AudioPlayer>().PlaySound("Item", true);
     }
 
@@ -27,8 +27,12 @@ public class PickupItem : MonoBehaviour, IInteractable
 
     public void OnDeselected()
     {
-        if(material != null)
-            material.color = color;
+        if (material != null)
+            SetColor(color);
+    }
+    private void SetColor(Color c)
+    {
+        material.SetColor("_BaseColor", c);
     }
 
     public void OnSelected()
@@ -37,7 +41,7 @@ public class PickupItem : MonoBehaviour, IInteractable
         Color.RGBToHSV(selectedColor, out float h, out _, out float v);
         float s = 1f;
         selectedColor = Color.HSVToRGB(h, s, v);
-        material.color = selectedColor;
+        SetColor(selectedColor);
     }
 
     private void OnDestroy()

@@ -5,13 +5,19 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu Instance { get; private set; }
-
-    [SerializeField] GameObject pauseMenu;
-    [SerializeField] GameObject crosshair;
-
     public bool IsPaused { get; private set; } = false;
+
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject crosshair;
+
+    [SerializeField] private float musicPauseVolume = 0.3f;
+    [SerializeField] private AudioSource musicSource;
+
+    private float defaultMusicVolume;
+
     private void Start()
     {
+        defaultMusicVolume = musicSource.volume;
         Instance = this;
         Time.timeScale = 1f;
     }
@@ -27,6 +33,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Resume()
     {
+        musicSource.volume = defaultMusicVolume;
         CursorManager.Instance.Lock();
         pauseMenu.SetActive(false);
         crosshair.SetActive(true);
@@ -35,6 +42,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Pause()
     {
+        musicSource.volume = defaultMusicVolume * musicPauseVolume;
         CursorManager.Instance.Unlock();
         crosshair.SetActive(false);
         pauseMenu.SetActive(true);

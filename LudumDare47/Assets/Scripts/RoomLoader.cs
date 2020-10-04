@@ -15,6 +15,8 @@ public class RoomLoader : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private RoomFailedManager roomFailed;
 
+    private bool playerHasWon = false;
+
     private readonly Queue<Room> loadedRooms = new Queue<Room>();
     private int currentRoom = 0;
 
@@ -28,7 +30,10 @@ public class RoomLoader : MonoBehaviour
             Room room = SpawnRoom(currentRoomPos, i);
 
             if (room.roomIndex == 0)
+            {
                 room.OnRoomLoaded(OnRoomCompleted, OnRoomFailed);
+                room.OnFirstRoomLoaded();
+            }
 
             currentRoomPos = room.endPoint.position;
 
@@ -82,10 +87,25 @@ public class RoomLoader : MonoBehaviour
     }
     public void OnRoomCompleted()
     {
+        playerHasWon = true;
+        roomFailed.ShowOnWin();
+        foreach (Room room in loadedRooms)
+        {
+            if (room.roomIndex == currentRoom)
+                room.Unload();
+        }
+
+
         Debug.Log("Room Completed!");
     }
     public void OnRoomFailed()
     {
+        if (playerHasWon)
+        {
+            Debug.LogWarning("Someone is trying to reset the room but the player already won!", this);
+            return;
+        }
+
         Debug.Log("Room Failed!");
         roomFailed.Show();
         foreach(Room room in loadedRooms)

@@ -178,6 +178,81 @@ Transform:
   m_Father: {fileID: 8016345433184236418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6095493313247061736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503499082309530068}
+  - component: {fileID: 2829118138200498221}
+  - component: {fileID: 6005000599411042182}
+  - component: {fileID: 2349918376682105408}
+  m_Layer: 0
+  m_Name: Tutorial trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &503499082309530068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095493313247061736}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.25, y: 0.698, z: -9.5}
+  m_LocalScale: {x: 14.395, y: 4.574715, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8016345433184236418}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2829118138200498221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095493313247061736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6005000599411042182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095493313247061736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd952afc20383fb4681ef579c385246d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: '[E] or [Mouse 0] - Interact'
+--- !u!54 &2349918376682105408
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095493313247061736}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &6108304789694787004
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +391,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7429255483703750422}
   m_LocalRotation: {x: 0.0000016391275, y: 0.7071068, z: -0.7071068, w: 0.0000016391275}
-  m_LocalPosition: {x: 5, y: 0.899, z: 0.006}
+  m_LocalPosition: {x: 5, y: 0.899, z: 0.025}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8016345433184236418}
@@ -436,6 +511,7 @@ Transform:
   - {fileID: 2499899480529609199}
   - {fileID: 3594963530474981847}
   - {fileID: 4899046525557725526}
+  - {fileID: 503499082309530068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1271,7 +1347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 6149748472552130268}
   endPoint: {fileID: 1740179878216848659}
-  TimeLeft: 60
+  TimeLeft: 35
   roomIndex: 0
   exit: {fileID: 7026766984731598776}
   puzzlePrefabs:
@@ -1284,3 +1360,4 @@ MonoBehaviour:
   puzzleTweenDuration: 0.75
   puzzleTweenInType: 6
   puzzleTweenOutType: 5
+  enableIfFirst: {fileID: 6095493313247061736}

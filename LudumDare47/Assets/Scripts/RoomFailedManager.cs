@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RoomFailedManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class RoomFailedManager : MonoBehaviour
     [SerializeField] private float tweenDuration = 1f;
     [SerializeField] private float timeVisible = 1f;
     [SerializeField] LeanTweenType tweenType;
+    [SerializeField] TextMeshProUGUI tet;
 
     public static bool Showing { get; private set; }
 
@@ -15,8 +17,15 @@ public class RoomFailedManager : MonoBehaviour
     {
         Showing = false;
     }
+    public void ShowOnWin()
+    {
+        tet.text = "You Won!\n You broke free from the loop.";
+        Show();
+    }
     public void Show()
     {
+        if (Showing)
+            return;
         // It Works!
         Showing = true;
         LeanTween.alphaCanvas(GetComponent<CanvasGroup>(), 1f, tweenDuration).setEase(tweenType).setOnComplete(

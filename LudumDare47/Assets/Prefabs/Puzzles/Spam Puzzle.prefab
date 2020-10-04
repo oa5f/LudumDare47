@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5cec72f1062c64887c8e662b7de506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max: 25
+  max: 100
   text: {fileID: 4256793218860694486}
 --- !u!114 &6863789068846952914
 MonoBehaviour:
@@ -356,7 +356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0 / max
+  m_text: 100 / 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 614a92a660dacd84d86c38e91208c367, type: 2}
   m_sharedMaterial: {fileID: 6801598133113862175, guid: 614a92a660dacd84d86c38e91208c367,
@@ -384,12 +384,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.35
-  m_fontSizeBase: 0.48
+  m_fontSize: 0.25
+  m_fontSizeBase: 0.25
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
-  m_fontSizeMax: 2.25
+  m_fontSizeMax: 0.18
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

@@ -18,6 +18,8 @@ public class Room : MonoBehaviour
     [SerializeField] LeanTweenType puzzleTweenInType;
     [SerializeField] LeanTweenType puzzleTweenOutType;
 
+    [SerializeField] GameObject enableIfFirst;
+
 
     private int currentPuzzleIndex = -1;
     private bool loaded;
@@ -40,6 +42,10 @@ public class Room : MonoBehaviour
         DisablePuzzle(currentPuzzle);
         exit.Close();
     }
+    public void OnFirstRoomLoaded()
+    {
+        enableIfFirst.SetActive(true);
+    }
     public void OnRoomLoaded(Action onRoomComplete, Action onRoomFail)
     {
         loaded = true;
@@ -47,6 +53,10 @@ public class Room : MonoBehaviour
         this.onRoomFail = onRoomFail;
 
         SpawnNextPuzzle();
+    }
+    public void Unload()
+    {
+        loaded = false;
     }
     private void SpawnNextPuzzle()
     {
